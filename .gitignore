@@ -1,0 +1,6 @@
+*.iso
+*_PROCESANDO_TEMP/
+*_GOD/
+*_XEX/
+*_Xbox1/
+.DS_Store
