@@ -9,13 +9,16 @@ Un script automatizado de alto rendimiento para GNU/Linux diseñado para gestion
 ## 🛠️ Instalación y Uss
 
 1. Clonación del Proyecto: Abre tu terminal favorita y lanza esta línea para descargar el repositorio y entrar en él:
+	
 	git clone https://github.com/MAGU-Terix/conversor-Xbox-magu.git && cd conversor-Xbox-magu
 
 2. Verificación de Integridad (Recomendado):
 Confirma que el script es auténtico y no una copia manipulada. Ejecuta esta línea dentro del directorio:
+	
 	echo "237ca4162e2cac8b522ce0d557f1ff54c49bc6d7fc39e25d49d2db8c85761784 conversor-Xbox-magu.sh" | sha256sum --check
 
 3. Permisos de Ejecución: Una vez verificado, asigna los permisos necesarios para poder lanzarlo:
+	
 	chmod +x conversor-Xbox-magu.sh
 
 4. Configuración Inicial (Dependencias):
@@ -23,6 +26,7 @@ La primera vez el script detectará si faltan herramientas de conversión. Te pe
 Nota: Es normal que tras instalar todo el script finalice; esto significa que el entorno ya quedó preparado.
 
 5. Ejecución y Formatos: Para convertir tus juegos, ve a la carpeta donde tengas tus ISOs y lanza el script llamándolo por su ruta:
+	
 	~/conversor-Xbox-magu/conversor-Xbox-magu.sh
 	
 Podrás elegir entre las siguientes opciones:
