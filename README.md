@@ -50,4 +50,4 @@ Con esto habrás logrado procesar tus juegos a máxima velocidad, aprovechando l
 
 | Archivo | Tipo | SHA-256 Hash |
 | :--- | :--- | :--- |
-| `conversor-Xbox-magu.sh` | Bash Script | `237ca4162e2cac8b522ce0d557f1ff54c49bc6d7fc39e25d49d2db8c85761784` |
+| `conversor-Xbox-magu.sh` | Bash Script | `74a4e55296e5fee3a487cd7310f6994229239e5253270b90887b6b51c7b6de1b` |
