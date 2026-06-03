@@ -4,6 +4,8 @@ Desarrollado por MAGU-Terix 🐧🔥
 
 # 🏷️ TERIX: TERminal Interactive eXecutable
 
+[English Version](#english) | [Versión en Español](#español)
+
 ¡Convierte tus respaldos sin ventanas! 🚀
 
 Un script automatizado de alto rendimiento para GNU/Linux diseñado para gestionar y convertir ISOs de Xbox 360 de forma nativa.
@@ -17,7 +19,7 @@ Un script automatizado de alto rendimiento para GNU/Linux diseñado para gestion
 2. Verificación de Integridad (Recomendado):
 Confirma que el script es auténtico y no una copia manipulada. Ejecuta esta línea dentro del directorio:
 	
-	echo "237ca4162e2cac8b522ce0d557f1ff54c49bc6d7fc39e25d49d2db8c85761784 conversor-Xbox-magu.sh" | sha256sum --check
+	echo "74a4e55296e5fee3a487cd7310f6994229239e5253270b90887b6b51c7b6de1b conversor-Xbox-magu.sh" | sha256sum --check
 
 3. Permisos de Ejecución: Una vez verificado, asigna los permisos necesarios para poder lanzarlo:
 	
@@ -31,7 +33,7 @@ Nota: Es normal que tras instalar todo el script finalice; esto significa que el
 	
 	~/conversor-Xbox-magu/conversor-Xbox-magu.sh
 	
-Podrás elegir entre las siguientes opciones:
+Podrás elegir el Idioma y luego las siguientes opciones:
 
 Opción 1: ISO a GOD (Games on Demand)
 
