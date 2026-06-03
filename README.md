@@ -2,13 +2,15 @@
 
 Desarrollado por MAGU-Terix 🐧🔥
 
+# 🏷️ TERIX: TERminal Interactive eXecutable
+
 ¡Convierte tus respaldos sin ventanas! 🚀
 
 Un script automatizado de alto rendimiento para GNU/Linux diseñado para gestionar y convertir ISOs de Xbox 360 de forma nativa.
 
-## 🛠️ Instalación y Uss
+## 🛠️ Instalación y Usos
 
-1. Clonación del Proyecto: Abre tu terminal favorita y lanza esta línea para descargar el repositorio y entrar en él:
+1. Clonación del Proyecto: Abre tu terminal favorita y lanza esta línea para descargar el repositorio y entrar en el:
 	
 	git clone https://github.com/MAGU-Terix/conversor-Xbox-magu.git && cd conversor-Xbox-magu
 
