@@ -2,6 +2,17 @@
 
 clear
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ ! -d "$SCRIPT_DIR/bin" ]] || [[ ! -f "$SCRIPT_DIR/bin/extract-xiso" ]] || [[ ! -f "$SCRIPT_DIR/bin/iso2god" ]]; then
+    mkdir -p "$SCRIPT_DIR/bin"
+    curl -sL "https://raw.githubusercontent.com/MAGU-Terix/conversor-Xbox-magu/main/bin/extract-xiso" -o "$SCRIPT_DIR/bin/extract-xiso"
+    curl -sL "https://raw.githubusercontent.com/MAGU-Terix/conversor-Xbox-magu/main/bin/iso2god" -o "$SCRIPT_DIR/bin/iso2god"
+fi
+
+export PATH="$SCRIPT_DIR/bin:$PATH"
+chmod +x "$SCRIPT_DIR/bin/"* 2>/dev/null || true
+
 TXT_LANG_1="1) Espanol (Spanish)"
 TXT_LANG_2="2) English (Ingles)"
 
@@ -15,11 +26,6 @@ read -r IDIOMA
 if [ "$IDIOMA" = "2" ]; then
     TXT_SUBTITLE="NATIVE VIDEO GAME MULTI-CONVERTER FOR GNU/LINUX"
     TXT_OPTIMIZED="Target: Pop!_OS / Ubuntu / Debian and derivatives"
-    TXT_CHECK_RUST="[*] iso2god-rs binary not found. Compiling native environment..."
-    TXT_DL_GITHUB="[*] Cloning source from GitHub..."
-    TXT_COMP_RUST="[+] Building release binary with Cargo..."
-    TXT_CHECK_XISO="[*] extract-xiso not found. Building secondary binary..."
-    TXT_INST_XISO="[+] extract-xiso installed successfully."
     TXT_ERR_NO_ISO="[-] Error: No .iso files found in this directory."
     TXT_ERR_PLACE="[i] Run this script inside the folder with your ISO images."
     TXT_IMG_DETECTED="[+] Image detected:"
@@ -53,11 +59,6 @@ if [ "$IDIOMA" = "2" ]; then
 else
     TXT_SUBTITLE="MULTI-CONVERSOR DE VIDEOJUEGOS NATIVO PARA GNU/LINUX"
     TXT_OPTIMIZED="Entorno: Pop!_OS / Ubuntu / Debian y derivados"
-    TXT_CHECK_RUST="[*] Binario iso2god-rs no detectado. Compilando entorno..."
-    TXT_DL_GITHUB="[*] Clonando codigo fuente desde GitHub..."
-    TXT_COMP_RUST="[+] Compilando ejecutable release con Cargo..."
-    TXT_CHECK_XISO="[*] extract-xiso no detectado. Compilando binario alternativo..."
-    TXT_INST_XISO="[+] extract-xiso instalado con exito."
     TXT_ERR_NO_ISO="[-] Error: No se encontraron archivos .iso en este directorio."
     TXT_ERR_PLACE="[i] Coloca este script en la misma carpeta donde tengas tus juegos."
     TXT_IMG_DETECTED="[+] Imagen detectada:"
@@ -103,29 +104,6 @@ echo -e "        \033[0;34m${TXT_SUBTITLE}\033[0m"
 echo -e "                 \033[1;33mVersión 1.2 - By MAGU TERIX (RGH Scene)\033[0m"
 echo -e "  \033[0;32m${TXT_OPTIMIZED}\033[0m"
 echo -e "\033[0;36m=====================================================================\033[0m\n"
-
-BINARIO_LOCAL="$HOME/iso2god-rs/target/release/iso2god"
-
-if [ ! -f "$BINARIO_LOCAL" ]; then
-    echo -e "\033[1;33m${TXT_CHECK_RUST}\033[0m"
-    sudo apt update && sudo apt install build-essential cmake git python3 curl cargo -y
-    cd ~ && rm -rf iso2god-rs
-    echo -e "\033[1;33m${TXT_DL_GITHUB}\033[0m"
-    git clone https://github.com/iliazeus/iso2god-rs.git
-    cd iso2god-rs
-    echo -e "\033[0;32m${TXT_COMP_RUST}\033[0m"
-    cargo build --release
-fi
-
-if ! command -v extract-xiso &> /dev/null; then
-    echo -e "\033[1;33m${TXT_CHECK_XISO}\033[0m"
-    cd ~ && rm -rf extract-xiso
-    git clone --recursive https://github.com/XboxDev/extract-xiso.git &> /dev/null
-    cd extract-xiso && mkdir build && cd build
-    cmake .. &> /dev/null && make &> /dev/null
-    sudo cp extract-xiso /usr/local/bin/ && sudo chmod +x /usr/local/bin/extract-xiso
-    echo -e "\033[0;32m${TXT_INST_XISO}\033[0m"
-fi
 
 DIR_ACTUAL=$(pwd)
 
@@ -195,7 +173,7 @@ case "$OPCION" in
         fi
         
         echo -e "\033[0;32m${TXT_EXEC_MOTOR}\033[0m"
-        $BINARIO_LOCAL "$JAULA_LOCAL/iso_src/$ISO_NAME" "$JAULA_LOCAL/god_out" --trim --num-threads "$HILOS_ASIGNADOS"
+        iso2god "$JAULA_LOCAL/iso_src/$ISO_NAME" "$JAULA_LOCAL/god_out" --trim --num-threads "$HILOS_ASIGNADOS"
         
         if [ -n "$(ls -A "$JAULA_LOCAL/god_out" 2>/dev/null)" ]; then
             echo -e "\033[1;33m${TXT_MOV_CONT}\033[0m"
