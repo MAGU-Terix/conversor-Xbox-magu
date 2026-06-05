@@ -19,7 +19,7 @@ Un script automatizado de alto rendimiento para GNU/Linux diseñado para gestion
 2. Verificación de Integridad (Recomendado):
 Confirma que el script es auténtico y no una copia manipulada. Ejecuta esta línea dentro del directorio:
 	
-	echo "74a4e55296e5fee3a487cd7310f6994229239e5253270b90887b6b51c7b6de1b conversor-Xbox-magu.sh" | sha256sum --check
+	echo "64e122b7cd9774c37de3384a290ef7a1ea61decc25c529bd53875a4ef1a90903 conversor-Xbox-magu.sh" | sha256sum --check
 
 3. Permisos de Ejecución: Una vez verificado, asigna los permisos necesarios para poder lanzarlo:
 	
@@ -50,4 +50,4 @@ Con esto habrás logrado procesar tus juegos a máxima velocidad, aprovechando l
 
 | Archivo | Tipo | SHA-256 Hash |
 | :--- | :--- | :--- |
-| `conversor-Xbox-magu.sh` | Bash Script | `74a4e55296e5fee3a487cd7310f6994229239e5253270b90887b6b51c7b6de1b` |
+| `conversor-Xbox-magu.sh` | Bash Script | `64e122b7cd9774c37de3384a290ef7a1ea61decc25c529bd53875a4ef1a90903` |
